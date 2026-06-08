@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Alya's Domain — The Terminal</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    
+    <!-- Inline script to process form fields directly into a web Gmail compose tab -->
+    <script type="text/javascript">
+    //<![CDATA[
+    function sendToGmail() {
+        var myEmail = "a3rglo@gmail.com"; // <-- PUT YOUR EMAIL HERE
+        
+        // Grab values from the input tags
+        var name = document.getElementById("username").value;
+        var email = document.getElementById("useremail").value;
+        var protocol = document.getElementById("packet-type").value;
+        var msg = document.getElementById("message").value;
+        
+        // Construct a clean text payload string
+        var subject = encodeURIComponent("Terminal Transmission: " + protocol);
+        var bodyText = "Identity Tag: " + name + "\n" +
+                       "Return Coordinates: " + email + "\n" +
+                       "Protocol: " + protocol + "\n\n" +
+                       "Payload Message:\n" + msg;
+                       
+        var body = encodeURIComponent(bodyText);
+        
+        // Build the official Google Mail web URL link
+        var gmailUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=" + myEmail + "&su=" + subject + "&body=" + body;
+        
+        // Open Gmail compose window in a brand new browser tab
+        window.open(gmailUrl, '_blank');
+        return false; // Prevents the static page from refreshing out
+    }
+    //]]>
+    </script>
+</head>
+<body>
+
+    <!-- MAIN WRAPPER CONTAINER -->
+    <div id="main-container">
+
+        <!-- 1.0 HEADER AREA (BANNER) -->
+        <div id="header-area">
+            <img src="banner.jpg" alt="Alya's Domain - Step Inside, My Whimsical World Awaits You" />
+        </div>
+
+        <!-- 2.0 ARCHED DOOR NAVIGATION MENU -->
+        <div id="nav-container">
+            <h2>Select a Gateway to Proceed</h2>
+            
+            <div id="doors-grid">
+                <a href="index.html" class="door">
+                    <span class="door-number">I</span>
+                    <span class="door-title">The Portal</span>
+                </a>
+                
+                <a href="about.html" class="door">
+                    <span class="door-number">II</span>
+                    <span class="door-title">The Architect</span>
+                </a>
+                
+                <a href="education.html" class="door">
+                    <span class="door-number">III</span>
+                    <span class="door-title">The Archive</span>
+                </a>
+                
+                <a href="family.html" class="door">
+                    <span class="door-number">IV</span>
+                    <span class="door-title">The Royal Court</span>
+                </a>
+                
+                <a href="hobbies.html" class="door">
+                    <span class="door-number">V</span>
+                    <span class="door-title">The Nexus</span>
+                </a>
+                
+                <a href="gallery.html" class="door">
+                    <span class="door-number">VI</span>
+                    <span class="door-title">The Mirage Grid</span>
+                </a>
+                
+                <a href="contact.html" class="door">
+                    <span class="door-number">VII</span>
+                    <span class="door-title">The Terminal</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- 3.0 MAIN CONTENT AREA -->
+        <div id="content-area">
+            <h1>The Terminal — Establish Communications</h1>
+            
+            <p>You have reached the outer boundary of the mainframe. This console terminal allows external nodes to broadcast feedback, inquiries, or transmissions back to the architect. Fill out the validation fields below to route your payload directly through Gmail protocol layers.</p>
+
+            <!-- MANDATORY XHTML FORM WITH DIRECT GMAIL TRIGGER -->
+            <div id="terminal-form-box">
+                <h2>[CON_INP] Outbound Packet Entry</h2>
+                
+                <form action="#" method="post" onsubmit="return sendToGmail();">
+                    
+                    <!-- Text Input Element -->
+                    <div class="form-group">
+                        <label for="username">Identity Tag (Name):</label>
+                        <input type="text" id="username" name="name" placeholder="e.g., Guest User" required="required" />
+                    </div>
+
+                    <!-- Email Input Element -->
+                    <div class="form-group">
+                        <label for="useremail">Return Coordinates (Email):</label>
+                        <input type="text" id="useremail" name="email" placeholder="e.g., node@domain.com" required="required" />
+                    </div>
+
+                    <!-- Dropdown Select Element -->
+                    <div class="form-group">
+                        <label for="packet-type">Transmission Protocol:</label>
+                        <select id="packet-type" name="protocol">
+                            <option value="General Feedback">General Feedback Query</option>
+                            <option value="Academic Sync">Academic / Informatics Sync</option>
+                            <option value="Baking Request">Banana Bread Recipe Request</option>
+                            <option value="Adik Anomaly">Adik Anomaly Report</option>
+                        </select>
+                    </div>
+
+                    <!-- Text Area Input Element -->
+                    <div class="form-group">
+                        <label for="message">Payload Message:</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Type your terminal input string here..." required="required"></textarea>
+                    </div>
+
+                    <!-- Reset and Submit Command Inputs -->
+                    <div class="form-button-layer">
+                        <input type="reset" value="[CLEAR_INPUT]" class="btn-terminal reset-btn" />
+                        <input type="submit" value="[EXECUTE_BROADCAST]" class="btn-terminal submit-btn" />
+                    </div>
+
+                </form>
+            </div>
+
+            <h2>Alternative Frequencies</h2>
+            <p>If the form terminal protocol fails to establish sync, you can route communications directly through my verified social index links:</p>
+            
+            <ul>
+                <li><strong>Instagram Module:</strong> <a href="https://instagram.com" style="color: #ffcc00; text-decoration: underline;">@your_handle</a></li>
+                <li><strong>Academic Portal:</strong> UiTM Kampus Sungai Petani, Kedah</li>
+            </ul>
+
+            <hr />
+
+            <p class="status-text"><em>"Terminal Status: Standing by for inputs. Web-Gmail bypass algorithm loaded."</em></p>
+        </div>
+
+        <!-- 4.0 FOOTER AREA -->
+        <div id="footer-area">
+            <p>&copy; 2026 Alya's Domain. All Rights Reserved.</p>
+        </div>
+
+    </div> <!-- End of main-container -->
+
+</body>
+</html>
