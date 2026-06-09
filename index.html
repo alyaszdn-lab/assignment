@@ -3,54 +3,81 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Alya's Domain — The Portal</title>
+    <title>Alya's Domain — Home</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    
+<script type="text/javascript">
+//<![CDATA[
+function startTerminalClock() {
+    // 1. Grab the current date and time from the visitor's computer
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    
+    // Convert from 24-hour time to friendly 12-hour layout
+    h = h % 12;
+    h = h ? h : 12; 
+    
+    // 2. Add a zero in front of numbers < 10 (so it reads 10:05:09 instead of 10:5:9)
+    if (h < 10) { h = "0" + h; }
+    if (m < 10) { m = "0" + m; }
+    if (s < 10) { s = "0" + s; }
+    
+    // 3. Inject the formatted text string directly into our HTML clock span
+    document.getElementById('terminal-clock').innerHTML = h + ":" + m + ":" + s + " " + ampm;
+    
+    // 4. Instruct the browser to run this entire routine again in 1 second
+    setTimeout(startTerminalClock, 1000);
+}
+//]]>
+</script>
 </head>
-<body>
+<body onload="startTerminalClock();">
 
-    <!-- MAIN WRAPPER CONTAINER -->
+    <div id="top-node"></div>
+
     <div id="main-container">
 
-        <!-- 1.0 HEADER AREA (UPDATED BANNER FILE NAME) -->
         <div id="header-area">
-            <img src="banner.jpg" alt="Alya's Domain - Step Inside, My Whimsical World Awaits You" />
+            <img src="banner.jpg" alt="Alya's Domain Header Banner Layout Image" />
         </div>
 
-        <!-- 2.0 ARCHED DOOR NAVIGATION MENU -->
         <div id="nav-container">
             <h2>Select a Gateway to Proceed</h2>
+            
+            <div class="nav-announcement">
+    <strong>[SYSTEM NOTICE]:</strong> Welcome to Alya's Web Portal Project. Use the arched navigation grid below to explore the different sectors.
+    <br />
+    <strong>[SYSTEM TIME]:</strong> <span id="terminal-clock" style="color: #00f2fe; font-weight: bold; letter-spacing: 1px;">00:00:00 AM</span>
+            </div>
             
             <div id="doors-grid">
                 <a href="index.html" class="door">
                     <span class="door-number">I</span>
                     <span class="door-title">The Portal</span>
                 </a>
-                
                 <a href="about.html" class="door">
                     <span class="door-number">II</span>
                     <span class="door-title">The Architect</span>
                 </a>
-                
                 <a href="education.html" class="door">
                     <span class="door-number">III</span>
                     <span class="door-title">The Archive</span>
                 </a>
-                
                 <a href="family.html" class="door">
                     <span class="door-number">IV</span>
                     <span class="door-title">The Royal Court</span>
                 </a>
-                
                 <a href="hobbies.html" class="door">
                     <span class="door-number">V</span>
                     <span class="door-title">The Nexus</span>
                 </a>
-                
                 <a href="gallery.html" class="door">
                     <span class="door-number">VI</span>
                     <span class="door-title">The Mirage Grid</span>
                 </a>
-                
                 <a href="contact.html" class="door">
                     <span class="door-number">VII</span>
                     <span class="door-title">The Terminal</span>
@@ -58,34 +85,26 @@
             </div>
         </div>
 
-        <!-- 3.0 MAIN CONTENT AREA -->
         <div id="content-area">
-            <h1>The Portal — Welcome to My Domain</h1>
+            <h1>Welcome to Alya's Domain</h1>
+            <p>Hello and welcome! This is my personal web portal space built from scratch for my university assignment project. This portal maps out my personal experiences, family, creative hobbies and more.</p>
             
-            <p>Welcome to the central gateway of Alya's Domain. This digital space serves as my personal territory, capturing my academic milestones, creative passions, and the treasured moments spent with the people who matter most. As you navigate through the different sectors of this realm, you will uncover the archives of my journey so far and get a glimpse into my aspirations for the horizon ahead.</p>
-
-            <h2>Sectors to Explore</h2>
-            <p>To easily navigate through my domain, select any of the arched gateways above to unlock and explore these specific sectors:</p>
+            <p>Feel free to click through the arched gateway doors above to explore the different sectors of my site. Thank you for visiting!</p>
             
-            <ul>
-                <li><strong>The Architect:</strong> A deeper dive into who I am, my core personality, and my values.</li>
-                <li><strong>The Archive:</strong> My complete academic history, timeline, and background milestones.</li>
-                <li><strong>The Royal Court:</strong> A dedicated tribute to my family and closest circle of friends.</li>
-                <li><strong>The Nexus &amp; Mirage Grid:</strong> An exhibition of my personal hobbies, interests, and media gallery.</li>
-                <li><strong>The Terminal:</strong> A view into my future career aspirations and how to get in touch with me.</li>
-            </ul>
-
-            <hr />
-
-            <p class="status-text"><em>"System Status: Active. Currently exploring the depths of interactive web design, creative thinking, and digital storytelling."</em></p>
+           <div style="text-align: center; margin-top: 30px;">
+                <img src="mushroom.jpeg" alt="Alya's Domain Welcome Frame" style="border: 2px solid #222222; max-width: 220px; width: 100%; padding: 5px; background-color: #0b0a0f;" />
+            </div>           
+            <div style="text-align: right;">
+                <a href="#top-node" class="terminal-anchor">[▲ Return to Top Node]</a>
+            </div>
         </div>
 
-        <!-- 4.0 FOOTER AREA -->
         <div id="footer-area">
-            <p>&copy; 2026 Alya's Domain. All Rights Reserved.</p>
+            <p class="footer-disclaimer">&copy; 2026 Alya's Domain. All Rights Reserved.</p>
+            <p class="footer-disclaimer">Optimized for: Google Chrome Browser Matrix</p>
+            <p class="footer-disclaimer">Best Viewed Resolution: 1920 x 1080 Pixels Grid</p>
+            <p class="footer-disclaimer">System Update Timestamp: June 9, 2026</p>
         </div>
 
-    </div> <!-- End of main-container -->
-
-</body>
+    </div> </body>
 </html>

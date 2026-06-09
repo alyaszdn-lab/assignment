@@ -5,8 +5,29 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Alya's Domain — The Nexus</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript">
+//<![CDATA[
+function startTerminalClock() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    
+    h = h % 12;
+    h = h ? h : 12; 
+    
+    if (h < 10) { h = "0" + h; }
+    if (m < 10) { m = "0" + m; }
+    if (s < 10) { s = "0" + s; }
+    
+    document.getElementById('terminal-clock').innerHTML = h + ":" + m + ":" + s + " " + ampm;
+    setTimeout(startTerminalClock, 1000);
+}
+//]]>
+</script>
 </head>
-<body>
+<body onload="startTerminalClock();">
 
     <!-- MAIN WRAPPER CONTAINER -->
     <div id="main-container">
@@ -19,7 +40,13 @@
         <!-- 2.0 ARCHED DOOR NAVIGATION MENU -->
         <div id="nav-container">
             <h2>Select a Gateway to Proceed</h2>
-            
+
+         <div class="nav-announcement">
+    <strong>[SYSTEM NOTICE]:</strong> Welcome to Alya's Web Portal Project. Use the arched navigation grid below to explore the different sectors. 
+    <br />
+    <strong>[SYSTEM TIME]:</strong> <span id="terminal-clock" style="color: #00f2fe; font-weight: bold; letter-spacing: 1px;">00:00:00 AM</span>
+            </div>
+          
             <div id="doors-grid">
                 <a href="index.html" class="door">
                     <span class="door-number">I</span>
@@ -78,7 +105,7 @@
                 <!-- COLUMN 2 -->
                 <div class="hobby-column">
                     <h3>[02] Screen &amp; Page Logs</h3>
-                    <p><strong>The Comic Archives:</strong> Reading series like <em>BoBoiBoy Galaxy</em>, <em>Candy Series</em>, and <em>Siri Putera</em>. My brother (*Adik*) reads <em>Lawak Kampus</em> and <em>Dragon Ball</em>, allowing us to constantly trade volumes.</p>
+                    <p><strong>The Comic Archives:</strong> Reading series like <em>BoBoiBoy Galaxy</em>, <em>Candy Series</em>, and <em>Siri Putera</em>. My brother (Adik) reads <em>Lawak Kampus</em> and <em>Dragon Ball</em>, allowing us to constantly trade volumes.</p>
                     <p><strong>Visual Broadcasts:</strong> Massive fan of anime, particularly slice-of-life and fantasy romance. *Adik* introduced me to <em>That Time I Got Reincarnated as a Slime</em>, which instantly became my absolute favorite series.</p>
                     <p><strong>Anomalous Gaming:</strong> Generally, I dislike video games. However, I am currently entirely hooked on a gentle mobile title called <em>Cats &amp; Soup</em>.</p>
                 </div>

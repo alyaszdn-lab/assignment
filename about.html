@@ -5,18 +5,46 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Alya's Domain — The Architect</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+
+<script type="text/javascript">
+//<![CDATA[
+function startTerminalClock() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    
+    h = h % 12;
+    h = h ? h : 12; 
+    
+    if (h < 10) { h = "0" + h; }
+    if (m < 10) { m = "0" + m; }
+    if (s < 10) { s = "0" + s; }
+    
+    document.getElementById('terminal-clock').innerHTML = h + ":" + m + ":" + s + " " + ampm;
+    setTimeout(startTerminalClock, 1000);
+}
+//]]>
+</script>
 </head>
-<body>
+<body onload="startTerminalClock();">
 
     <div id="main-container">
 
         <div id="header-area">
             <img src="banner.jpg" alt="Alya's Domain - Step Inside, My Whimsical World Awaits You" />
         </div>
-
+        
         <div id="nav-container">
             <h2>Select a Gateway to Proceed</h2>
-            
+
+        <div class="nav-announcement">
+    <strong>[SYSTEM NOTICE]:</strong> Welcome to Alya's Web Portal Project. Use the arched navigation grid below to explore the different sectors. 
+    <br />
+    <strong>[SYSTEM TIME]:</strong> <span id="terminal-clock" style="color: #00f2fe; font-weight: bold; letter-spacing: 1px;">00:00:00 AM</span>
+            </div>
+       
             <div id="doors-grid">
                 <a href="index.html" class="door">
                     <span class="door-number">I</span>

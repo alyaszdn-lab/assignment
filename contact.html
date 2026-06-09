@@ -5,83 +5,106 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Alya's Domain — The Terminal</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
-    
-    <!-- Inline script to process form fields directly into a web Gmail compose tab -->
-    <script type="text/javascript">
-    //<![CDATA[
-    function sendToGmail() {
-        var myEmail = "a3rglo@gmail.com"; // <-- PUT YOUR EMAIL HERE
-        
-        // Grab values from the input tags
-        var name = document.getElementById("username").value;
-        var email = document.getElementById("useremail").value;
-        var protocol = document.getElementById("packet-type").value;
-        var msg = document.getElementById("message").value;
-        
-        // Construct a clean text payload string
-        var subject = encodeURIComponent("Terminal Transmission: " + protocol);
-        var bodyText = "Identity Tag: " + name + "\n" +
-                       "Return Coordinates: " + email + "\n" +
-                       "Protocol: " + protocol + "\n\n" +
-                       "Payload Message:\n" + msg;
-                       
-        var body = encodeURIComponent(bodyText);
-        
-        // Build the official Google Mail web URL link
-        var gmailUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=" + myEmail + "&su=" + subject + "&body=" + body;
-        
-        // Open Gmail compose window in a brand new browser tab
-        window.open(gmailUrl, '_blank');
-        return false; // Prevents the static page from refreshing out
-    }
-    //]]>
-    </script>
-</head>
-<body>
 
-    <!-- MAIN WRAPPER CONTAINER -->
+<script type="text/javascript">
+//<![CDATA[
+// 1. LIVE RUNNING CLOCK SCRIPT
+function startTerminalClock() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    
+    h = h % 12;
+    h = h ? h : 12; 
+    
+    if (h < 10) { h = "0" + h; }
+    if (m < 10) { m = "0" + m; }
+    if (s < 10) { s = "0" + s; }
+    
+    document.getElementById('terminal-clock').innerHTML = h + ":" + m + ":" + s + " " + ampm;
+    setTimeout(startTerminalClock, 1000);
+}
+
+// 2. LIVE MESSAGE BOARD SUBMISSION SCRIPT (DOM MANIPULATION)
+function postToMessageBoard() {
+    // Grab text node strings from input controls
+    var name = document.getElementById("username").value;
+    var category = document.getElementById("packet-type").value;
+    var msg = document.getElementById("message").value;
+    
+    // Core Input Validation (Secures script logic marks)
+    if (name.replace(/\s/g, "") == "" || msg.replace(/\s/g, "") == "") {
+        alert("[SYSTEM LOG CRITICAL]: Transmission aborted. Identity strings and data content cannot remain null.");
+        return false;
+    }
+    
+    // Isolate the log wrapper element node
+    var logsContainer = document.getElementById("message-logs");
+    
+    // Construct a brand new styled HTML comment element string block
+    var newLogEntry = '<div style="background: #111116; border-left: 3px solid #00f2fe; padding: 15px; margin-bottom: 15px;">' +
+                      '<strong style="color: #00f2fe;">[' + name.toUpperCase() + ']</strong> ' +
+                      '<span style="color: #777; font-size: 11px;">(Protocol: ' + category + ')</span><br />' +
+                      '<p style="margin: 8px 0 0 0; color: #ffffff; font-size: 13px; line-height: 1.5;">' + msg + '</p>' +
+                      '</div>';
+    
+    // Prepend the new message to the top of the feed container layout
+    logsContainer.innerHTML = newLogEntry + logsContainer.innerHTML;
+    
+    // Wipe form controls clean right on the viewport screen
+    document.getElementById("username").value = "";
+    document.getElementById("message").value = "";
+    
+    alert("[TRANSMISSION SUCCESSFUL]: Data packet integrated into the public stream node.");
+    return false;
+}
+//]]>
+</script>
+</head>
+<body onload="startTerminalClock();">
+
     <div id="main-container">
 
-        <!-- 1.0 HEADER AREA (BANNER) -->
         <div id="header-area">
             <img src="banner.jpg" alt="Alya's Domain - Step Inside, My Whimsical World Awaits You" />
         </div>
 
-        <!-- 2.0 ARCHED DOOR NAVIGATION MENU -->
         <div id="nav-container">
             <h2>Select a Gateway to Proceed</h2>
-            
+
+            <div class="nav-announcement">
+                <strong>[SYSTEM NOTICE]:</strong> Welcome to Alya's Web Portal Project. Use the arched navigation grid below to explore the different sectors. 
+                <br />
+                <strong>[SYSTEM TIME]:</strong> <span id="terminal-clock" style="color: #00f2fe; font-weight: bold; letter-spacing: 1px;">00:00:00 AM</span>
+            </div>
+           
             <div id="doors-grid">
                 <a href="index.html" class="door">
                     <span class="door-number">I</span>
                     <span class="door-title">The Portal</span>
                 </a>
-                
                 <a href="about.html" class="door">
                     <span class="door-number">II</span>
                     <span class="door-title">The Architect</span>
                 </a>
-                
                 <a href="education.html" class="door">
                     <span class="door-number">III</span>
                     <span class="door-title">The Archive</span>
                 </a>
-                
                 <a href="family.html" class="door">
                     <span class="door-number">IV</span>
                     <span class="door-title">The Royal Court</span>
                 </a>
-                
                 <a href="hobbies.html" class="door">
                     <span class="door-number">V</span>
                     <span class="door-title">The Nexus</span>
                 </a>
-                
                 <a href="gallery.html" class="door">
                     <span class="door-number">VI</span>
                     <span class="door-title">The Mirage Grid</span>
                 </a>
-                
                 <a href="contact.html" class="door">
                     <span class="door-number">VII</span>
                     <span class="door-title">The Terminal</span>
@@ -89,48 +112,35 @@
             </div>
         </div>
 
-        <!-- 3.0 MAIN CONTENT AREA -->
         <div id="content-area">
             <h1>The Terminal — Establish Communications</h1>
-            
-            <p>You have reached the outer boundary of the mainframe. This console terminal allows external nodes to broadcast feedback, inquiries, or transmissions back to the architect. Fill out the validation fields below to route your payload directly through Gmail protocol layers.</p>
+            <p>You have reached the outer boundary of the mainframe. This console terminal allows external nodes to broadcast feedback, inquiries, or transmissions back to the architect. Deploy a text packet directly into the terminal stream node below.</p>
 
-            <!-- MANDATORY XHTML FORM WITH DIRECT GMAIL TRIGGER -->
             <div id="terminal-form-box">
                 <h2>[CON_INP] Outbound Packet Entry</h2>
                 
-                <form action="#" method="post" onsubmit="return sendToGmail();">
+                <form action="#" method="post" onsubmit="return postToMessageBoard();">
                     
-                    <!-- Text Input Element -->
                     <div class="form-group">
                         <label for="username">Identity Tag (Name):</label>
-                        <input type="text" id="username" name="name" placeholder="e.g., Guest User" required="required" />
+                        <input type="text" id="username" name="name" placeholder="e.g., Guest User" />
                     </div>
 
-                    <!-- Email Input Element -->
-                    <div class="form-group">
-                        <label for="useremail">Return Coordinates (Email):</label>
-                        <input type="text" id="useremail" name="email" placeholder="e.g., node@domain.com" required="required" />
-                    </div>
-
-                    <!-- Dropdown Select Element -->
                     <div class="form-group">
                         <label for="packet-type">Transmission Protocol:</label>
                         <select id="packet-type" name="protocol">
-                            <option value="General Feedback">General Feedback Query</option>
-                            <option value="Academic Sync">Academic / Informatics Sync</option>
-                            <option value="Baking Request">Banana Bread Recipe Request</option>
-                            <option value="Adik Anomaly">Adik Anomaly Report</option>
+                            <option value="General Feedback Query">General Feedback Query</option>
+                            <option value="Academic Questions">Academic Questions</option>
+                            <option value="Banana Bread Recipe Request">Banana Bread Recipe Request</option>
+                            <option value="Adik Anomaly Report">Adik Anomaly Report</option>
                         </select>
                     </div>
 
-                    <!-- Text Area Input Element -->
                     <div class="form-group">
                         <label for="message">Payload Message:</label>
-                        <textarea id="message" name="message" rows="6" placeholder="Type your terminal input string here..." required="required"></textarea>
+                        <textarea id="message" name="message" rows="6" placeholder="Type your terminal input string here..."></textarea>
                     </div>
 
-                    <!-- Reset and Submit Command Inputs -->
                     <div class="form-button-layer">
                         <input type="reset" value="[CLEAR_INPUT]" class="btn-terminal reset-btn" />
                         <input type="submit" value="[EXECUTE_BROADCAST]" class="btn-terminal submit-btn" />
@@ -139,25 +149,38 @@
                 </form>
             </div>
 
-            <h2>Alternative Frequencies</h2>
+            <hr style="border: 1px dashed #222227; margin: 40px 0;" />
+
+            <h3>[LIVE TERMINAL FEEDBACK LOGS]</h3>
+            <div id="message-logs">
+                <div style="background: #111116; border-left: 3px solid #ffcc00; padding: 15px; margin-bottom: 15px;">
+                    <strong style="color: #ffcc00;">[SYSTEM_BOT]</strong> <span style="color: #777; font-size: 11px;">(Protocol: System Notice Log)</span><br />
+                    <p style="margin: 8px 0 0 0; color: #bbb; font-size: 13px; line-height: 1.5;">Welcome to the live data stream tracking vector. Use the communication input panel above to append your packet coordinates directly to this page viewport layer.</p>
+                </div>
+            </div>
+
+          <h2>Alternative Frequencies</h2>
             <p>If the form terminal protocol fails to establish sync, you can route communications directly through my verified social index links:</p>
             
             <ul>
-                <li><strong>Instagram Module:</strong> <a href="https://instagram.com" style="color: #ffcc00; text-decoration: underline;">@your_handle</a></li>
-                <li><strong>Academic Portal:</strong> UiTM Kampus Sungai Petani, Kedah</li>
+                <li>
+                    <strong>My Main Email Address:</strong> 
+                    <a href="mailto:alyakhalisahszdn@gmail.com" class="pulse-color-link">alyakhalisahszdn@gmail.com</a>
+                </li>
+                <li>
+                    <strong>Instagram Module:</strong> 
+                    <a href="https://instagram.com/sincerely_a1ya" class="pulse-color-link" target="_blank">@sincerely_a1ya</a>
+                </li>
             </ul>
 
             <hr />
 
-            <p class="status-text"><em>"Terminal Status: Standing by for inputs. Web-Gmail bypass algorithm loaded."</em></p>
+            <p class="status-text"><em>"Terminal Status: Standing by for local inputs. Real-time DOM stream compilation engine loaded."</em></p>
         </div>
 
-        <!-- 4.0 FOOTER AREA -->
         <div id="footer-area">
             <p>&copy; 2026 Alya's Domain. All Rights Reserved.</p>
         </div>
 
-    </div> <!-- End of main-container -->
-
-</body>
+    </div> </body>
 </html>

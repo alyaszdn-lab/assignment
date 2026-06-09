@@ -5,8 +5,29 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Alya's Domain — The Mirage Grid</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript">
+//<![CDATA[
+function startTerminalClock() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    
+    h = h % 12;
+    h = h ? h : 12; 
+    
+    if (h < 10) { h = "0" + h; }
+    if (m < 10) { m = "0" + m; }
+    if (s < 10) { s = "0" + s; }
+    
+    document.getElementById('terminal-clock').innerHTML = h + ":" + m + ":" + s + " " + ampm;
+    setTimeout(startTerminalClock, 1000);
+}
+//]]>
+</script>
 </head>
-<body>
+<body onload="startTerminalClock();">
 
     <!-- MAIN WRAPPER CONTAINER -->
     <div id="main-container">
@@ -19,7 +40,13 @@
         <!-- 2.0 ARCHED DOOR NAVIGATION MENU -->
         <div id="nav-container">
             <h2>Select a Gateway to Proceed</h2>
-            
+
+         <div class="nav-announcement">
+    <strong>[SYSTEM NOTICE]:</strong> Welcome to Alya's Web Portal Project. Use the arched navigation grid below to explore the different sectors. 
+    <br />
+    <strong>[SYSTEM TIME]:</strong> <span id="terminal-clock" style="color: #00f2fe; font-weight: bold; letter-spacing: 1px;">00:00:00 AM</span>
+            </div>
+          
             <div id="doors-grid">
                 <a href="index.html" class="door">
                     <span class="door-number">I</span>
@@ -62,7 +89,7 @@
         <div id="content-area">
             <h1>The Mirage Grid — Multimedia Archives</h1>
             
-            <p>Welcome to The Mirage Grid, the dedicated sensory depository of the domain. This matrix contains curated visual data frames, local campus audio frequencies, and a series of motion captures cataloging daily life anomalies, culinary test runs, and system field trips.</p>
+            <p>Welcome to The Mirage Grid, the dedicated sensory depository of the domain. This matrix contains curated visual data frames, local campus audio frequencies, and a series of motion captures cataloging daily life anomalies, culinary test runs, and field trips.</p>
 
             <!-- SECTION 1: THE CURATED 6-IMAGE PHOTO GRID -->
             <h2>[01] Visual Data Frames</h2>
@@ -101,7 +128,7 @@
 
             <div class="media-stream-box">
                 <h3>Campus Transmission: Lemak Manis</h3>
-                <p>Press play below to monitor the live audio file of legendary artist Roslan Madun performing "Lemak Manis" during his official visit to UiTM Kedah:</p>
+                <p>Press play below to monitor the live audio file of legendary artist Roslan Madun performing "Lemak Manis" during his official visit to UiTM Kedah, and those laughing sounds are my friends and me:</p>
                 <div class="audio-control-layer">
                     <audio controls="controls">
                         <source src="lemak_manis.mp3" type="audio/mpeg" />
@@ -113,12 +140,12 @@
 
             <!-- SECTION 3: THE 2-VIDEO ARTIFACT COLUMN -->
             <h2>[03] Motion Archives &amp; System Anomalies</h2>
-            <p>Dynamic video recordings displaying external culinary operations and highly classified, chaotic activities involving *Adik*:</p>
+            <p>Dynamic video recordings displaying external culinary operations and highly classified, chaotic activities involving Adik:</p>
 
             <div class="video-matrix">
                 <div class="video-card">
                     <h3>Anomaly Log A: Tactical Harvesting</h3>
-                    <p>A concerning data stream recording of *Adik* executing a highly unstable maneuver to harvest fresh rambutan fruit from the branches:</p>
+                    <p>A concerning data stream recording of Adik executing a highly unstable maneuver to harvest fresh rambutan fruit from the branches:</p>
                     <div class="video-frame">
                         <video controls="controls" width="100%">
                             <source src="adik_rambutan.mp4" type="video/mp4" />

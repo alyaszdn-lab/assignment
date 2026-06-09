@@ -5,8 +5,29 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Alya's Domain — The Archive</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript">
+//<![CDATA[
+function startTerminalClock() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    
+    h = h % 12;
+    h = h ? h : 12; 
+    
+    if (h < 10) { h = "0" + h; }
+    if (m < 10) { m = "0" + m; }
+    if (s < 10) { s = "0" + s; }
+    
+    document.getElementById('terminal-clock').innerHTML = h + ":" + m + ":" + s + " " + ampm;
+    setTimeout(startTerminalClock, 1000);
+}
+//]]>
+</script>
 </head>
-<body>
+<body onload="startTerminalClock();">
 
     <!-- MAIN WRAPPER CONTAINER -->
     <div id="main-container">
@@ -20,6 +41,12 @@
         <div id="nav-container">
             <h2>Select a Gateway to Proceed</h2>
             
+        <div class="nav-announcement">
+    <strong>[SYSTEM NOTICE]:</strong> Welcome to Alya's Web Portal Project. Use the arched navigation grid below to explore the different sectors. 
+    <br />
+    <strong>[SYSTEM TIME]:</strong> <span id="terminal-clock" style="color: #00f2fe; font-weight: bold; letter-spacing: 1px;">00:00:00 AM</span>
+            </div>
+       
             <div id="doors-grid">
                 <a href="index.html" class="door">
                     <span class="door-number">I</span>
@@ -64,7 +91,7 @@
             
             <p>Welcome to the historical database of the domain. This matrix contains the verified data points charting my academic evolution across different locations. Navigating through multiple institutions taught me to adapt and remain focused on processing goals, regardless of shifting environments.</p>
 
-            <h2>Academic Timeline Matrix</h2>
+            <h2>Academic Timeline</h2>
             <p>A comprehensive log tracking my educational path from primary foundation to higher information management:</p>
 
             <!-- Strict XHTML timeline table -->
@@ -85,7 +112,7 @@
                     <tr>
                         <td style="font-weight: bold;">2019 &mdash; 2021</td>
                         <td>SMK Bandar Baru Bangi</td>
-                        <td>Lower Secondary Matrix</td>
+                        <td>Lower Secondary</td>
                     </tr>
                     <tr>
                         <td style="font-weight: bold;">2022 &mdash; 2023</td>
@@ -106,7 +133,7 @@
             <ul>
                 <li><strong>The Variable Factor:</strong> Moving schools and changing coordinates right in the middle of high school was challenging. However, pushing through that friction to achieve straight 8 As proved that results depend on personal focus, not external settings.</li>
                 <li><strong>Network Connectivity:</strong> Growing up, friendships frequently shifted, and very few connections remained static over time. Because past nodes did not stick, the system has learned to filter out background noise and place absolute premium value on the present.</li>
-                <li><strong>Current Node Strategy:</strong> What matters explicitly right now is my immediate radius—the current work, my present growth, and the small circle of real people standing in my vicinity today.</li>
+                <li><strong>Current Node Strategy:</strong> What matters explicitly right now is the current work, my present growth, and the small circle of real people standing in my vicinity today.</li>
             </ul>
 
             <hr />

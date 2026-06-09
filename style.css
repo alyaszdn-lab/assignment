@@ -98,22 +98,27 @@ html, body {
     transition: background-color 0.4s ease;
 }
 
-/* Text Element formatting inside doors */
+/* Text Element formatting inside doors — ENHANCED CLARITY */
 .door-number {
-    font-size: 20px;
-    font-weight: bold;
-    color: #666666;
-    margin-bottom: 12px;
+    font-family: "Courier New", Courier, monospace; /* Clean, cyber-style tech font */
+    font-size: 24px;         /* Bumped up from 20px so numbers are highly distinct */
+    font-weight: 800;        /* Extra bold weight */
+    color: #888888;          /* Brightened idle state */
+    letter-spacing: 1px;
+    margin-bottom: 16px;     /* Added spacing between number and title */
     transition: color 0.4s ease;
 }
 
 .door-title {
-    font-size: 11px;
-    font-weight: bold;
-    color: #e5e5e5;
+    font-family: "Segoe UI", Arial, sans-serif; /* Clean, modern sans-serif for sharp reading */
+    font-size: 13px;         /* Bumped up from 11px to make it instantly legible */
+    font-weight: 700;        /* Bold weight so the letters don't look blurry */
+    color: #ffffff;          /* Changed idle color to pure white for maximum contrast */
+    text-transform: uppercase; /* Makes the title stand out clearly */
     text-align: center;
-    padding: 0 6px;
-    line-height: 1.4;
+    padding: 0 10px;
+    line-height: 1.5;        /* Better line spacing so words don't bunch up */
+    letter-spacing: 0.5px;   /* Minor breathing room between letters */
     transition: color 0.4s ease;
 }
 
@@ -142,6 +147,52 @@ html, body {
 .door:visited .door-number {
     opacity: 0.5; 
 }
+
+/* ==========================================================================
+   3.2 INDIVIDUAL DOOR COLOR SPECTRUMS (USING NTH-CHILD)
+   ========================================================================== */
+
+/* Door I: The Portal (Vibrant Turquoise / Cyan) */
+.door:nth-child(1):hover { border-color: #00f2fe; box-shadow: 0px 10px 20px rgba(0, 242, 254, 0.2); }
+.door:nth-child(1):hover::after { background-color: #00f2fe; box-shadow: 0 0 5px #00f2fe; }
+.door:nth-child(1):hover .door-number { color: #00f2fe; }
+.door:nth-child(1):hover .door-title { text-shadow: 0 0 5px rgba(0, 242, 254, 0.6); }
+
+/* Door II: The Architect (Neon Green) */
+.door:nth-child(2):hover { border-color: #38ef7d; box-shadow: 0px 10px 20px rgba(56, 239, 125, 0.2); }
+.door:nth-child(2):hover::after { background-color: #38ef7d; box-shadow: 0 0 5px #38ef7d; }
+.door:nth-child(2):hover .door-number { color: #38ef7d; }
+.door:nth-child(2):hover .door-title { text-shadow: 0 0 5px rgba(56, 239, 125, 0.6); }
+
+/* Door III: The Archive (Electric Sapphire Blue) */
+.door:nth-child(3):hover { border-color: #58a6ff; box-shadow: 0px 10px 20px rgba(88, 166, 255, 0.2); }
+.door:nth-child(3):hover::after { background-color: #58a6ff; box-shadow: 0 0 5px #58a6ff; }
+.door:nth-child(3):hover .door-number { color: #58a6ff; }
+.door:nth-child(3):hover .door-title { text-shadow: 0 0 5px rgba(88, 166, 255, 0.6); }
+
+/* Door IV: The Royal Court (Signature Gold - Keep original style) */
+.door:nth-child(4):hover { border-color: #ffcc00; box-shadow: 0px 10px 20px rgba(255, 204, 0, 0.2); }
+.door:nth-child(4):hover::after { background-color: #ffcc00; box-shadow: 0 0 5px #ffcc00; }
+.door:nth-child(4):hover .door-number { color: #ffcc00; }
+.door:nth-child(4):hover .door-title { text-shadow: 0 0 5px rgba(255, 204, 0, 0.6); }
+
+/* Door V: The Nexus (Sunset Coral Orange) */
+.door:nth-child(5):hover { border-color: #ff9f43; box-shadow: 0px 10px 20px rgba(255, 159, 67, 0.2); }
+.door:nth-child(5):hover::after { background-color: #ff9f43; box-shadow: 0 0 5px #ff9f43; }
+.door:nth-child(5):hover .door-number { color: #ff9f43; }
+.door:nth-child(5):hover .door-title { text-shadow: 0 0 5px rgba(255, 159, 67, 0.6); }
+
+/* Door VI: The Mirage Grid (Vivid Orchid Purple) */
+.door:nth-child(6):hover { border-color: #9b5de5; box-shadow: 0px 10px 20px rgba(155, 93, 229, 0.2); }
+.door:nth-child(6):hover::after { background-color: #9b5de5; box-shadow: 0 0 5px #9b5de5; }
+.door:nth-child(6):hover .door-number { color: #9b5de5; }
+.door:nth-child(6):hover .door-title { text-shadow: 0 0 5px rgba(155, 93, 229, 0.6); }
+
+/* Door VII: The Terminal (Hot Magenta Pink) */
+.door:nth-child(7):hover { border-color: #f15bb5; box-shadow: 0px 10px 20px rgba(241, 91, 181, 0.2); }
+.door:nth-child(7):hover::after { background-color: #f15bb5; box-shadow: 0 0 5px #f15bb5; }
+.door:nth-child(7):hover .door-number { color: #f15bb5; }
+.door:nth-child(7):hover .door-title { text-shadow: 0 0 5px rgba(241, 91, 181, 0.6); }
 
 /* ==========================================================================
    4.0 MAIN CONTENT LAYOUT
@@ -532,4 +583,73 @@ audio {
     background-color: #ff3333;
     color: #ffffff;
     box-shadow: 0 0 10px rgba(255, 51, 51, 0.3);
+}
+
+/* ==========================================================================
+   4.0 NAVIGATION ARCHITECTURE & ANNOUNCEMENTS
+   ========================================================================== */
+#nav-container {
+    background-color: #000000;
+    border: 2px solid #222222;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+#nav-container h2 {
+    color: #ffcc00;
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* New Uniform Announcement Box */
+.nav-announcement {
+    background-color: #111116;
+    border-left: 3px solid #ffcc00;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: #888888;
+}
+
+.nav-announcement strong {
+    color: #ffcc00;
+}
+
+/* ==========================================================================
+   11.0 ANCHOR LINK & COMPREHENSIVE FOOTER DISCLAIMER
+   ========================================================================== */
+/* Back to top anchor style */
+.terminal-anchor {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #666666;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.terminal-anchor:hover {
+    color: #ffcc00;
+}
+
+/* Advanced Multi-Line Footer */
+#footer-area {
+    margin-top: 50px;
+    border-top: 1px dashed #222222;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.footer-disclaimer {
+    font-size: 11px;
+    color: #555555;
+    line-height: 1.8;
+    margin: 5px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }

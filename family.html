@@ -5,8 +5,29 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Alya's Domain — The Royal Court</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript">
+//<![CDATA[
+function startTerminalClock() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    
+    h = h % 12;
+    h = h ? h : 12; 
+    
+    if (h < 10) { h = "0" + h; }
+    if (m < 10) { m = "0" + m; }
+    if (s < 10) { s = "0" + s; }
+    
+    document.getElementById('terminal-clock').innerHTML = h + ":" + m + ":" + s + " " + ampm;
+    setTimeout(startTerminalClock, 1000);
+}
+//]]>
+</script>
 </head>
-<body>
+<body onload="startTerminalClock();">
 
     <!-- MAIN WRAPPER CONTAINER -->
     <div id="main-container">
@@ -19,7 +40,14 @@
         <!-- 2.0 ARCHED DOOR NAVIGATION MENU -->
         <div id="nav-container">
             <h2>Select a Gateway to Proceed</h2>
-            
+
+        <div class="nav-announcement">
+    <strong>[SYSTEM NOTICE]:</strong> Welcome to Alya's Web Portal Project. Use the arched navigation grid below to explore the different sectors.
+    <br />
+    <strong>[SYSTEM TIME]:</strong> <span id="terminal-clock" style="color: #00f2fe; font-weight: bold; letter-spacing: 1px;">00:00:00 AM</span>
+            </div>
+       
+    
             <div id="doors-grid">
                 <a href="index.html" class="door">
                     <span class="door-number">I</span>
@@ -119,7 +147,7 @@
             
             <ul>
                 <li><strong>The SPM Overload:</strong> My parents' divorce occurred concurrently with my final high school examinations. Managing the emotional noise of a broken household while trying to secure an academic future required absolute mental compartmentalization.</li>
-                <li><strong>The Protective Variable:</strong> Having my little brother (*Adik*) means remembering that my actions echo beyond just myself. Keeping things stable for him is a quiet priority.</li>
+                <li><strong>The Protective Variable:</strong> Having my little brother (Adik) means remembering that my actions echo beyond just myself. Keeping things stable for him is a quiet priority.</li>
                 <li><strong>Moving Forward:</strong> Family history can be complicated, but it does not dictate the design of my future. The court is small, the history is heavy, but the trajectory remains entirely mine to code.</li>
             </ul>
 
